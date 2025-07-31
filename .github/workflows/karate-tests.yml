@@ -22,3 +22,10 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn clean test
+
+      - name: Upload Karate HTML Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: karate-html-report
+          path: target/karate-reports/
